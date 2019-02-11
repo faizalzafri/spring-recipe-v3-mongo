@@ -79,8 +79,7 @@ public class IngredientServiceImplTest {
 		IngredientCommand ingredientCommand = ingredientService.findByRecipeIdAndIngredientId("1", "3");
 
 		// when
-		assertEquals(String.valueOf(3L), ingredientCommand.getId());
-		assertEquals(String.valueOf(1L), ingredientCommand.getRecipeId());
+		assertEquals(String.valueOf("3"), ingredientCommand.getId());
 		verify(recipeRepository, times(1)).findById(anyString());
 	}
 
@@ -104,7 +103,7 @@ public class IngredientServiceImplTest {
 		IngredientCommand savedCommand = ingredientService.save(command);
 
 		// then
-		assertEquals(String.valueOf(3L), savedCommand.getId());
+		assertEquals("3", savedCommand.getId());
 		verify(recipeRepository, times(1)).findById(anyString());
 		verify(recipeRepository, times(1)).save(any(Recipe.class));
 
@@ -117,7 +116,6 @@ public class IngredientServiceImplTest {
 		Ingredient ingredient = new Ingredient();
 		ingredient.setId("3");
 		recipe.addIngredient(ingredient);
-		ingredient.setRecipe(recipe);
 		Optional<Recipe> optRec = Optional.of(recipe);
 
 		when(recipeRepository.findById(anyString())).thenReturn(optRec);
