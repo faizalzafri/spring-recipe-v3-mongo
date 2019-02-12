@@ -1,4 +1,4 @@
-package com.faizal.springrecipemongo;
+package com.faizal.springrecipe;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,6 +9,4 @@ public class SpringRecipeMongoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringRecipeMongoApplication.class, args);
 	}
-
 }
-
